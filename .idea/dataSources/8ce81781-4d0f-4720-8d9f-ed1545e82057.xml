@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>ymd</DateStyle>
-      <IntrospectionStateNumber>775</IntrospectionStateNumber>
+      <IntrospectionStateNumber>785</IntrospectionStateNumber>
       <ServerVersion>17.0</ServerVersion>
       <StartupTime>1731211137</StartupTime>
       <TimeZones>true ACDT
@@ -799,7 +799,7 @@ false Zulu
 14704||10|C|G
 14704||-9223372036854775808|U|G
 14704||10|U|G</Grants>
-      <IntrospectionStateNumber>775</IntrospectionStateNumber>
+      <IntrospectionStateNumber>786</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -815,7 +815,7 @@ false Zulu
 14704||10|C|G
 14704||-9223372036854775808|U|G
 14704||10|U|G</Grants>
-      <IntrospectionStateNumber>769</IntrospectionStateNumber>
+      <IntrospectionStateNumber>785</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4237,8 +4237,8 @@ false Zulu
     <schema id="265" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>775</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-11-11.10:20:42</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>786</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-11-11.15:07:06</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -7594,8 +7594,8 @@ false Zulu
     <schema id="509" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>769</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-11-11.10:12:17</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>785</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-11-11.15:07:06</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -7608,13 +7608,27 @@ false Zulu
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="511" parent="265" name="restaurant">
+    <sequence id="511" parent="265" name="user_id_seq">
+      <ObjectId>16410</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>779</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <table id="512" parent="265" name="restaurant">
       <ObjectId>16390</ObjectId>
       <StateNumber>764</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="512" parent="511" name="id">
+    <table id="513" parent="265" name="user">
+      <ObjectId>16411</ObjectId>
+      <StateNumber>779</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="514" parent="512" name="id">
       <DefaultExpression>nextval(&apos;restaurant_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -7623,14 +7637,14 @@ false Zulu
       <SequenceId>16389</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="513" parent="511" name="name">
+    <column id="515" parent="512" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>762</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="514" parent="511" name="isVegan">
+    <column id="516" parent="512" name="isVegan">
       <DefaultExpression>true</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>3</Position>
@@ -7638,14 +7652,14 @@ false Zulu
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="515" parent="511" name="address">
+    <column id="517" parent="512" name="address">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>762</StateNumber>
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="516" parent="511" name="PK_649e250d8b8165cb406d99aa30f">
+    <index id="518" parent="512" name="PK_649e250d8b8165cb406d99aa30f">
       <ColNames>id</ColNames>
       <ObjectId>16396</ObjectId>
       <Primary>1</Primary>
@@ -7653,11 +7667,71 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="517" parent="511" name="PK_649e250d8b8165cb406d99aa30f">
+    <key id="519" parent="512" name="PK_649e250d8b8165cb406d99aa30f">
       <ObjectId>16397</ObjectId>
       <Primary>1</Primary>
       <StateNumber>762</StateNumber>
       <UnderlyingIndexId>16396</UnderlyingIndexId>
+    </key>
+    <column id="520" parent="513" name="id">
+      <DefaultExpression>nextval(&apos;user_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <SequenceId>16410</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="521" parent="513" name="createdAt">
+      <DefaultExpression>now()</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>timestamp|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="522" parent="513" name="updatedAt">
+      <DefaultExpression>now()</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>timestamp|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="523" parent="513" name="email">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="524" parent="513" name="password">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="525" parent="513" name="role">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>779</StateNumber>
+      <StoredType>varchar|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="526" parent="513" name="PK_cace4a159ff9f2512dd42373760">
+      <ColNames>id</ColNames>
+      <ObjectId>16419</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>779</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="527" parent="513" name="PK_cace4a159ff9f2512dd42373760">
+      <ObjectId>16420</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>779</StateNumber>
+      <UnderlyingIndexId>16419</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>
