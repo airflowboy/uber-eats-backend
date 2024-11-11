@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>ymd</DateStyle>
-      <IntrospectionStateNumber>765</IntrospectionStateNumber>
+      <IntrospectionStateNumber>775</IntrospectionStateNumber>
       <ServerVersion>17.0</ServerVersion>
       <StartupTime>1731211137</StartupTime>
       <TimeZones>true ACDT
@@ -799,7 +799,7 @@ false Zulu
 14704||10|C|G
 14704||-9223372036854775808|U|G
 14704||10|U|G</Grants>
-      <IntrospectionStateNumber>765</IntrospectionStateNumber>
+      <IntrospectionStateNumber>775</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -815,7 +815,7 @@ false Zulu
 14704||10|C|G
 14704||-9223372036854775808|U|G
 14704||10|U|G</Grants>
-      <IntrospectionStateNumber>755</IntrospectionStateNumber>
+      <IntrospectionStateNumber>769</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4237,8 +4237,8 @@ false Zulu
     <schema id="265" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>765</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-11-10.10:14:04</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>775</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-11-11.10:20:42</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -7594,8 +7594,8 @@ false Zulu
     <schema id="509" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>755</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-11-10.04:05:04</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>769</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-11-11.10:12:17</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -7631,9 +7631,10 @@ false Zulu
       <TypeId>1043</TypeId>
     </column>
     <column id="514" parent="511" name="isVegan">
+      <DefaultExpression>true</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>762</StateNumber>
+      <StateNumber>771</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
@@ -7644,21 +7645,7 @@ false Zulu
       <StoredType>varchar|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="516" parent="511" name="ownerName">
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StateNumber>762</StateNumber>
-      <StoredType>varchar|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="517" parent="511" name="categoryName">
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-      <StateNumber>764</StateNumber>
-      <StoredType>varchar|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="518" parent="511" name="PK_649e250d8b8165cb406d99aa30f">
+    <index id="516" parent="511" name="PK_649e250d8b8165cb406d99aa30f">
       <ColNames>id</ColNames>
       <ObjectId>16396</ObjectId>
       <Primary>1</Primary>
@@ -7666,7 +7653,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="519" parent="511" name="PK_649e250d8b8165cb406d99aa30f">
+    <key id="517" parent="511" name="PK_649e250d8b8165cb406d99aa30f">
       <ObjectId>16397</ObjectId>
       <Primary>1</Primary>
       <StateNumber>762</StateNumber>
