@@ -5,10 +5,15 @@ import { Repository } from 'typeorm';
 import { CreateAccountInput } from './dtos/create-account.dto';
 import { LoginInput } from './dtos/login.dto';
 import * as bcrypt from 'bcrypt';
+import { ConfigService } from '@nestjs/config';
+import * as jwt from 'jsonwebtoken';
+import { JwtService } from 'src/jwt/jwt.service';
+
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User) private readonly users: Repository<User>,
+    private readonly jwtService: JwtService,
   ) {}
 
   async createAccount(createAccountInput: CreateAccountInput): Promise<{ok: boolean, error?: string}> {
@@ -39,9 +44,10 @@ export class UsersService {
       const passwordCorrect = await user.checkPassword(loginInput.password);
       if(!passwordCorrect) {
         return {ok: false, error: "Wrong password"};
-      }
-      return {ok: true, token: "token"};
+      } 
       // 3. 토큰 생성
+      const token = this.jwtService.sigh(user.id);
+      return {ok: true, token};
     }catch(e) {
       return {ok: false, error: e.message};
     }
